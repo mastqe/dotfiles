@@ -8,7 +8,7 @@ antigen bundle zsh-users/zsh-syntax-highlighting
 antigen bundle nojhan/liquidprompt
 antigen bundle git
 antigen bundle mercurial
-antigen bundle command-not-found
+# antigen bundle command-not-found
 
 # THEME #
 # antigen theme robbyrussell
