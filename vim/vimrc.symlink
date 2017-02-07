@@ -1,6 +1,7 @@
 " PLUGINS
 call plug#begin()
 
+Plug 'ervandew/supertab'
 Plug 'scrooloose/syntastic'
 Plug 'itchyny/lightline.vim'
 Plug 'myusuf3/numbers.vim'
@@ -10,16 +11,15 @@ Plug 'scrooloose/nerdcommenter'
 
 call plug#end()
 
-set smarttab expandtab
+set smarttab expandtab shiftwidth=4
 set colorcolumn=80
 set background=dark
-let mapleader=","
 
+let mapleader=","
 let g:NERDSpaceDelims = 1
 
 "Remove all trailing whitespace by pressing F5
 nnoremap <F5> :let _s=@/<Bar>:%s/\s\+$//e<Bar>:let @/=_s<Bar><CR>
-
 
 " An example for a vimrc file.
 "
@@ -69,6 +69,7 @@ if has("autocmd")
   autocmd FileType text setlocal textwidth=78 shiftwidth=2 tabstop=2
   autocmd FileType java  setlocal shiftwidth=4 tabstop=4
   autocmd FileType c,cpp setlocal shiftwidth=4 tabstop=4
+  autocmd FileType ruby setlocal shiftwidth=2 tabstop=2
 
   augroup END
 
@@ -77,11 +78,3 @@ else
   set autoindent		" always set autoindenting on
 
 endif " has("autocmd")
-
-" Add optional packages.
-"
-" The matchit plugin makes the % command work better, but it is not backwards
-" compatible.
-if has('syntax') && has('eval')
-"  packadd matchit
-endif
