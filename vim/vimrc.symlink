@@ -1,6 +1,7 @@
 " PLUGINS
 call plug#begin()
 
+Plug 'altercation/vim-colors-solarized'
 Plug 'ervandew/supertab'
 Plug 'scrooloose/syntastic'
 Plug 'itchyny/lightline.vim'
@@ -11,24 +12,30 @@ Plug 'scrooloose/nerdcommenter'
 
 call plug#end()
 
+" defaults
 set smarttab expandtab shiftwidth=4
+set number
+
+" colors
 set background=dark
-colorscheme default
-" set colorcolumn=80
+colorscheme solarized
 
+" fix lightline
 set laststatus=2
+let g:lightline = { 'colorscheme': 'solarized' }
 
+" Highlight long lines
 highlight OverLength ctermbg=red ctermfg=white guibg=#592929
 match OverLength /\%81v.\+/
 
+" NERDCommenter settings
 let mapleader=","
 let g:NERDSpaceDelims=1
-
-let g:syntastic_c_compiler="mpicc"
 
 "Remove all trailing whitespace by pressing F5
 nnoremap <F5> :let _s=@/<Bar>:%s/\s\+$//e<Bar>:let @/=_s<Bar><CR>
 
+"--------------------------------------------------------------------------
 " An example for a vimrc file.
 "
 " Maintainer:	Bram Moolenaar <Bram@vim.org>
