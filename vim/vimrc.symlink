@@ -12,11 +12,19 @@ Plug 'scrooloose/nerdcommenter'
 call plug#end()
 
 set smarttab expandtab shiftwidth=4
-set colorcolumn=80
 set background=dark
+colorscheme default
+" set colorcolumn=80
+
+set laststatus=2
+
+highlight OverLength ctermbg=red ctermfg=white guibg=#592929
+match OverLength /\%81v.\+/
 
 let mapleader=","
-let g:NERDSpaceDelims = 1
+let g:NERDSpaceDelims=1
+
+let g:syntastic_c_compiler="mpicc"
 
 "Remove all trailing whitespace by pressing F5
 nnoremap <F5> :let _s=@/<Bar>:%s/\s\+$//e<Bar>:let @/=_s<Bar><CR>

@@ -1,4 +1,31 @@
+# remap prefix to C-a
 set-option -g prefix C-a
 unbind-key C-b
 bind-key C-a send-prefix
 
+# split panes using | and -
+bind | split-window -h
+bind - split-window -v
+unbind '"'
+unbind %
+
+# switch panes using Alt-arrow without prefix
+bind -n M-Left select-pane -L
+bind -n M-Right select-pane -R
+bind -n M-Up select-pane -U
+bind -n M-Down select-pane -D
+
+# panes
+set -g pane-border-fg black
+set -g pane-active-border-fg brightred
+
+## Status bar design
+# status line
+set -g status-utf8 on
+set -g status-justify left
+set -g status-bg default
+set -g status-fg colour12
+set -g status-interval 2
+
+# fix vim statusline
+set -g default-terminal "screen-256color"
