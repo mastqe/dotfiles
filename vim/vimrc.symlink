@@ -16,6 +16,9 @@ call plug#end()
 set smarttab expandtab shiftwidth=4
 set number
 
+" spellcheck
+set spelllang=en
+
 " colors
 set background=dark
 colorscheme solarized
