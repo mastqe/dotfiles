@@ -18,6 +18,7 @@ bind -n M-Down select-pane -D
 # fix vim statusline
 set -g default-terminal "screen-256color"
 
+set -sg escape-time 10
 
 #### COLOUR (Solarized dark)
 
