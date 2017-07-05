@@ -11,6 +11,7 @@ Plug 'raimondi/delimitMate'
 Plug 'derekwyatt/vim-fswitch'
 Plug 'scrooloose/nerdcommenter'
 Plug 'sirtaj/vim-openscad'
+Plug 'PProvost/vim-ps1'
 
 call plug#end()
 
