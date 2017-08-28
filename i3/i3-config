@@ -18,6 +18,11 @@ exec --no-startup-id gsettings set org.nemo.desktop show-desktop-icons false
 
 # ------ Key binds ------
 
+bindsym $mod+m move scratchpad
+bindsym $mod+n scratchpad show
+bindsym $mod+shift+n exec chromium --incognito
+bindsym $mod+shift+m exec chromium 
+
 # Pulse Audio controls
 # increase sound volume
 bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume 0 +5%
