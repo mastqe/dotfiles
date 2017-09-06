@@ -13,6 +13,7 @@ Plug 'scrooloose/nerdcommenter'
 Plug 'sirtaj/vim-openscad'
 Plug 'PProvost/vim-ps1'
 Plug 'mastqe/decaf-syntax'
+Plug 'terryma/vim-multiple-cursors'
 
 call plug#end()
 
