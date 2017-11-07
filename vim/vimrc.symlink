@@ -6,7 +6,6 @@ Plug 'ervandew/supertab'
 Plug 'scrooloose/syntastic'
 Plug 'itchyny/lightline.vim'
 Plug 'myusuf3/numbers.vim'
-" Plug 'jiangmiao/auto-pairs'
 Plug 'raimondi/delimitMate'
 Plug 'derekwyatt/vim-fswitch'
 Plug 'scrooloose/nerdcommenter'
@@ -14,12 +13,40 @@ Plug 'sirtaj/vim-openscad'
 Plug 'PProvost/vim-ps1'
 Plug 'mastqe/decaf-syntax'
 Plug 'terryma/vim-multiple-cursors'
+Plug 'tpope/vim-fugitive'
+Plug 'Yggdroot/indentLine'
+Plug 'airblade/vim-gitgutter'
+Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
+                \ | Plug 'Xuyuanp/nerdtree-git-plugin'
+
+if executable('ctags') || executable('exctags')
+    Plug 'majutsushi/tagbar'
+    nmap <leader>t :TagbarToggle<CR>
+endif
+
+" vim-systemd-syntax - because I hate myself, but not that much
+Plug 'Matt-Deacalion/vim-systemd-syntax', { 'for': 'systemd'}
+
+" Vim syntax file for Docker's Dockerfile
+Plug 'ekalinin/Dockerfile.vim', {'for': 'Dockerfile'}
+
+Plug 'kien/rainbow_parentheses.vim'
+    nnoremap <F7> :RainbowParenthesesToggleAll<CR>
+    inoremap <F7> <C-O>:RainbowParenthesesToggleAll<CR>
 
 call plug#end()
 
 " defaults
 set smarttab expandtab shiftwidth=4
 set number
+
+let g:SuperTabDefaultCompletionType = 'context'
+
+" NERD Tree
+map <C-N> :NERDTreeToggle<CR>
+
+" Syntastic
+let g:syntastic_check_on_wq = 0
 
 " spellcheck
 set spelllang=en
