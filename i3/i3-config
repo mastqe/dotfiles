@@ -20,8 +20,8 @@ exec --no-startup-id gsettings set org.nemo.desktop show-desktop-icons false
 
 bindsym $mod+m move scratchpad
 bindsym $mod+n scratchpad show
-bindsym $mod+shift+n exec chromium --incognito
-bindsym $mod+shift+m exec chromium 
+bindsym $mod+shift+n exec GTK_THEME=Adwaita firefox -private-window
+bindsym $mod+shift+m exec GTK_THEME=Adwaita firefox
 
 # Pulse Audio controls
 # increase sound volume
@@ -106,7 +106,7 @@ font pango:DejaVu Sans Mono 10
 floating_modifier $mod
 
 # start a terminal
-bindsym $mod+Return exec i3-sensible-terminal
+bindsym $mod+Return exec termite
 
 # kill focused window
 bindsym $mod+q kill
