@@ -2,12 +2,13 @@
 
 # Startup apps
 exec --no-startup-id nm-applet
-exec --no-startup-id redshift
-exec --no-startup-id kupfer
+exec --no-startup-id redshift -l 38.45:-78.91
+exec --no-startup-id synapse
 exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
+exec --no-startup-id compton --vsync opengl --no-fading-openclose
 
 # Remap CAPS to Ctrl
-exec --no-startup-id setxkbmap -layout us -option ctrl:nocaps
+exec always --no-startup-id setxkbmap -layout us -option ctrl:nocaps -option altwin:swap_lalt_lwin
 
 # Set natural scrolling
 exec --no-startup-id synclient VertScrollDelta=-75
@@ -20,8 +21,8 @@ exec --no-startup-id gsettings set org.nemo.desktop show-desktop-icons false
 
 bindsym $mod+m move scratchpad
 bindsym $mod+n scratchpad show
-bindsym $mod+shift+n exec GTK_THEME=Adwaita firefox -private-window
-bindsym $mod+shift+m exec GTK_THEME=Adwaita firefox
+bindsym $mod+shift+n exec firefox -private-window
+bindsym $mod+shift+m exec firefox
 
 # Pulse Audio controls
 # increase sound volume
@@ -85,7 +86,7 @@ new_window 1pixel
 #
 # Please see http://i3wm.org/docs/userguide.html for a complete reference!
 
-set $mod Mod1
+set $mod Mod4
 
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below.
