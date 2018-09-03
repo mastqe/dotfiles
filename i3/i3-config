@@ -1,14 +1,19 @@
 # ------ Startup ------
 
+exec --no-startup-id xautolock -time 10 -notify 30 \
+    -notifier 'cvlc --play-and-exit /home/qem/plop.mp3' \
+    -locker '/home/qem/.dotfiles/bin/lock.sh off' \
+    -nowlocker '/home/qem/.dotfiles/bin/lock.sh'
+
 # Startup apps
 exec --no-startup-id nm-applet
-exec --no-startup-id redshift -l 38.45:-78.91
+exec --no-startup-id redshift-gtk -l 38.45:-78.91
 exec --no-startup-id synapse
 exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
 exec --no-startup-id compton --vsync opengl --no-fading-openclose
 
 # Remap CAPS to Ctrl
-exec always --no-startup-id setxkbmap -layout us -option ctrl:nocaps -option altwin:swap_lalt_lwin
+exec_always --no-startup-id setxkbmap -layout us -option ctrl:nocaps -option altwin:swap_lalt_lwin
 
 # Set natural scrolling
 exec --no-startup-id synclient VertScrollDelta=-75
@@ -49,7 +54,7 @@ bindsym $mod+Shift+Control+Left move workspace prev
 bindsym $mod+Shift+Control+Right move workspace next
 
 # Lock screen
-bindsym Mod1+Control+l exec $HOME/.dotfiles/bin/lock.sh
+bindsym Mod1+Control+l exec $HOME/.dotfiles/bin/lock.sh off
 
 # ------ Appearence ------
 
@@ -63,8 +68,9 @@ exec --no-startup-id feh --bg-scale ~/Pictures/archlinux-minimal.jpg
 
 # Fload popups
 for_window [window_role="pop-up"] floating enable
-for_window [class="Nemo"] floating enabled
-for_window [class="Pamac"] floating enabled
+for_window [class="Nemo"] floating enable
+for_window [class="Pamac"] floating enable
+for_window [class="keepassxc"] floating enable
 
 # ------ Misc ------
 
@@ -234,7 +240,7 @@ bar {
           background #002b36
           statusline #839496
           separator  #586e75
-          focused_workspace  #002b36 #586e75 #fdf6e3 #268bd2 
+          focused_workspace  #002b36 #586e75 #fdf6e3 #268bd2
           active_workspace   #586e75 #586e75 #002b36
           inactive_workspace #073642 #002b36 #839496
           urgent_workspace   #002b36 #dc322f #fdf6e3 #002b36
