@@ -26,8 +26,8 @@ exec --no-startup-id gsettings set org.nemo.desktop show-desktop-icons false
 
 bindsym $mod+m move scratchpad
 bindsym $mod+n scratchpad show
-bindsym $mod+shift+n exec firefox -private-window
-bindsym $mod+shift+m exec firefox
+bindsym $mod+shift+n exec GTK_THEME=Adwaita firefox -private-window
+bindsym $mod+shift+m exec GTK_THEME=Adwaita firefox
 
 # Pulse Audio controls
 # increase sound volume
