@@ -9,6 +9,7 @@ exec --no-startup-id xautolock -time 10 -notify 30 \
 exec --no-startup-id nm-applet
 exec --no-startup-id redshift-gtk -l 38.45:-78.91
 exec --no-startup-id synapse
+exec --no-startup-id albert
 exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
 exec --no-startup-id compton --vsync opengl --no-fading-openclose
 
@@ -28,6 +29,7 @@ bindsym $mod+m move scratchpad
 bindsym $mod+n scratchpad show
 bindsym $mod+shift+n exec GTK_THEME=Adwaita firefox -private-window
 bindsym $mod+shift+m exec GTK_THEME=Adwaita firefox
+bindsym $mod+shift+q exec qt4autoclick
 
 # Pulse Audio controls
 # increase sound volume
@@ -54,7 +56,7 @@ bindsym $mod+Shift+Control+Left move workspace prev
 bindsym $mod+Shift+Control+Right move workspace next
 
 # Lock screen
-bindsym Mod1+Control+l exec $HOME/.dotfiles/bin/lock.sh off
+bindsym Mod4+Control+l exec $HOME/.dotfiles/bin/lock.sh off
 
 # ------ Appearence ------
 
@@ -71,6 +73,9 @@ for_window [window_role="pop-up"] floating enable
 for_window [class="Nemo"] floating enable
 for_window [class="Pamac"] floating enable
 for_window [class="keepassxc"] floating enable
+for_window [class="virt-manager"] floating enable
+for_window [title="Qt4AutoClick"] floating enable
+
 
 # ------ Misc ------
 
