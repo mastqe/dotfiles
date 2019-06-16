@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+
+systemctl start teamviewerd
+
+teamviewer &
+wait $!
+
+systemctl stop teamviewerd
