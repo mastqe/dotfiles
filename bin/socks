@@ -1,0 +1,39 @@
+#!/usr/bin/env bash
+
+#############################################
+#
+# Uses an ssh config entry in this form:
+#
+#   Host socks5
+#       HostName <remote host>
+#       User <remote user>
+#       DynamicForward <port>
+#       ControlMaster no
+#       Compression yes
+#
+############################################
+
+# start ssh tunnel for SOCKS5 use
+if [[ -z $1 || $1 == "up" ]]; then
+    if pgrep -f "ssh -fN socks5" > /dev/null; then
+        echo -e "\033[0;33mWARNING:\nSOCKS5 proxy already running"
+        exit
+    fi
+
+    if ssh -fN socks5; then
+        echo -e "\033[0;32mSUCCESS:\nSOCKS5 proxy started"
+    else
+        echo -e "\033[0;31mFAILURE:\nSOCKS5 proxy failed to start"
+        exit
+    fi
+fi
+
+# kill existing ssh tunnel
+if [[ $1 == "down" ]]; then
+    if pkill -f "ssh -fN socks5"; then
+        echo -e "\033[0;32mSUCCESS:\nSOCKS5 proxy stopped"
+    else
+        echo -e "\033[0;31mFAILURE:\nSOCKS5 proxy not running"
+        exit
+    fi
+fi
